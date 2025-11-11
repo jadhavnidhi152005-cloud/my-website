@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TNG Nutrition store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      padding:10px 20px:
+    }
+   nav a:hover{
+   text-devoration:underline:
+   text-underline-offset:4px:
+   }
+    .hero {
+      background-image: url('nutrition-banner.jpg');
+      background-size: cover;
+      color: black;
+      padding: 60px;
+      text-align: center;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .product {
+      background-color: white;
+      border: 1px solid #ccc;
+      margin: 10px;
+      padding: 15px;
+      width: 250px;
+      text-align: center;
+    }
+    footer {
+      background-color: #4CAF50;
+      color:White;
+      text-align: center;
+      padding: 10px;
+    }
+ button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+   button:hover { background: #218838; }
+    a { display: inline-block; margin-top: 20px; text-decoration: none; color: #007bff; }
+
+    }
+
+.search-container {
+        text-align: center;
+        margin: 20px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>TNG Nutrition Store</h1>
+  <p>Your one-stop shop for wellness</p>
+</header>
+
+<nav>
+<div class="topnav">
+  <a class="active"
+  <a href="Home.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="About Us.html">About Us</a>
+  <a href="contact.html">Contact Us</a> 
+  <input type="text" id="searchInput" placeholder="Search for products.." onkeyup="searchProducts()">
+  <a href="login.html">login</a>
+  <a href="cart.html"> 🛒</a>
+</nav>
+
+<div class="hero">
+  <h2>Boost Your Health Naturally</h2>
+  <p>Explore our range of organic supplements and superfoods</p>
+</div>
+
+<section class="hero">
+  <p>Good nutrition is the foundation of a healthy life. It fuels your body, sharpens your mind, and strengthens your immunity.</p>
+</section>
+
+<section class="products">
+  <div class="product">
+    <h3>Optimum Nutrition</h3>
+    <img src="C:\Users\nidhi\Downloads\download.jpeg">
+    <p class="price">₹3224</p>
+    <p>Optimum Nutrition (ON) Gold Standard 100% Whey 907 g, (Double Rich Chocolate) Protein Powder for Muscle Support & Recovery, Vegetarian - Primary Source Whey                          isolate</p> 
+    <button onclick="addToCart('Optimum Nutrition',3224)">Add to Cart</button>
+</div>
+ 
+<div class="product">
+  <h3>MuscleBlaze</h3>
+  <img src="C:\Users\nidhi\Downloads\shopping.webp">
+  <p class="price">₹2629</p>
+  <p>MuscleBlaze Biozyme Performance Whey Protein Powder, Rich Chocolate (1kg / 2.2lbs) | 25g Protein Per Scoop | Clinically Tested 50% Higher Protein Absorption</p>
+  <button onclick="addToCart('MuscleBlaze',2629)">Add to Cart</button>
+  </div>
+  
+<div class="product">
+  <h3>MYFITNESS</h3>
+  <img src="C:\Users\nidhi\Downloads\shopping (1).webp">
+  <p class="price">₹400</p> 
+  <p>MYFITNESS Peanut Butter Chocolate Spread Smooth 1.25kg | 22g Protein & 6g Fiber | Tasty & Healthy Nut Butter Spread for Breakfast, Snacks | Cholesterol Free | 
+     Zero Trans Fat | Creamy Peanut Butter</p>
+  <button onclick="addToCart('MYFITNESS',400)">Add to Cart</button>
+  </div>
+</section>
+
+<footer>
+<section class="location">
+  <h2>Location</h2>
+  <p>📍  Shop No 2 Chawl, 169, near Ambedkar Hospital, Tagore Nagar, Vikhroli, Mumbai, Maharashtra 400083</p>
+  <p>Open Hours: Monday–Saturday, 7 AM to 11 PM
+     sunday-10AM TO 10 AM</p>
+  <p>Contact: +91-91378 87334
+</section>
+</footer>
+ 
+<script>
+function addToCart(name, price) {
+      // Get existing cart data from localStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      // Add new product
+      cart.push({ name, price });
+      // Save back to localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+// Search filter function
+    function searchProducts() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const products = document.getElementsByClassName('product-card');
+        for (let i = 0; i < products.length; i++) {
+            const title = products[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+            products[i].style.display = title.includes(input) ? "block" : "none";
+        }
+    }
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({ name, price });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(`${name} added to cart!`);
+}
+
+function searchProducts() {
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  const products = document.querySelectorAll(".product");
+
+  products.forEach(product => {
+    const name = product.querySelector("h3").textContent.toLowerCase();
+    const description = product.querySelector("p:not(.price)").textContent.toLowerCase();
+
+    // If product name or description contains the search text → show it
+    if (name.includes(input) || description.includes(input)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+</body>
+</html>

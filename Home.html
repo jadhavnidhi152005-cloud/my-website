@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TNG Nutrition store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+   }
+header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+nav {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+ nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+
+
+</style>
+</head>
+<body>
+<header>
+  <h1>TNG Nutrition Store</h1>
+  <p>Your one-stop shop for wellness</p>
+</header>
+
+<nav>
+<div class="topnav">
+<a class="active"
+<a href="Home.html">Home</a>
+<a href="products.html">Products</a>
+<a href="About Us.html">About Us</a>
+<a href="contact.html">Contact Us</a> 
+<a href="login.html">login</a>
+<a href="cart.html">  🛒</a>
+</div>
+</nav>
+
+<h1>🌿 Why Nutrition Matters</h1>
+<p><br>Good nutrition is the foundation of a healthy life. It fuels your body, sharpens your mind, and strengthens your immunity.<br> Whether you're an athlete, a busy professional, or simply someone who wants to feel better every day—what you eat makes all the difference.
+</p>
+<h1>🍎 What We Offer</h1>
+<p>- Balanced Diet Guidance: Learn how to combine proteins, carbs, and fats for optimal energy.</p>
+<p>- Supplement Support: Discover vitamins and minerals that fill nutritional gaps.</p>
+<p>- Wellness Tips: From hydration hacks to mindful eating, we help you build sustainable habits.</p>
+<p>- Customized Plans: Tailored nutrition advice for weight management, fitness goals, or medical needs.</p>
+<p>This is a paragraph.</p>
+
+<script>
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({ name, price });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(`${name} added to cart!`);
+  }
+function searchProducts() {
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  const products = document.querySelectorAll(".product");
+
+  products.forEach(product => {
+    const name = product.querySelector("h3").textContent.toLowerCase();
+    const description = product.querySelector("p:not(.price)").textContent.toLowerCase();
+
+    // If product name or description contains the search text → show it
+    if (name.includes(input) || description.includes(input)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+</body>
+</html>
+
+

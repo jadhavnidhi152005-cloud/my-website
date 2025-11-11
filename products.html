@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TNG Nutrition store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+ header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+nav {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+ nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+ button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #218838; }
+    a { display: inline-block; margin-top: 20px; text-decoration: none; color: #007bff; }
+    }
+
+    .search-container {
+        text-align: center;
+        margin: 20px;
+    }
+
+ /* ✅ Center all product boxes */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 280px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+ .product h3 {
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .product p {
+      color: #555;
+      font-size: 14px;
+    }
+
+ .product img {
+  width: 100%;
+  height: 250px; /* you can increase or decrease this */
+  object-fit: contain; /* ensures the full image is visible inside the box */
+  border-radius: 8px;
+  background-color: #fff; /* adds a clean background behind transparent images */
+  padding: 5px; /* gives space between image and border */
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>TNG Nutrition Store</h1>
+  <p>Your one-stop shop for wellness</p>
+</header>
+
+<nav>
+<div class="topnav">
+  <a class="active"
+  <a href="Home.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="About Us.html">About Us</a>
+  <a href="contact.html">Contact Us</a> 
+  <input type="text" id="searchInput" placeholder="Search for products.." onkeyup="searchProducts()">
+  <a href="login.html">login</a>
+  <a href="cart.html">  🛒</a>
+</div>
+</nav>
+
+<section class="products">
+<div class="product">
+    
+<h3>Optimum Nutrition</h3>
+<img src="C:\Users\nidhi\Downloads\download.jpeg">
+<p class="price">₹3224</p>
+<p>Optimum Nutrition (ON) Gold Standard 100% Whey 907 g, (Double Rich Chocolate) Protein Powder for Muscle Support & Recovery, Vegetarian - Primary Source Whey Isolate</p>
+<button onclick="addToCart('Optimum Nutrition',3224)">Add to Cart</button>
+</div>
+ 
+<div class="product">
+<h3>MuscleBlaze</h3>
+<img src="C:\Users\nidhi\Downloads\shopping.webp">
+<p class="price">₹2,629</p>
+<p>MuscleBlaze Biozyme Performance Whey Protein Powder, Rich Chocolate (1kg / 2.2lbs) | 25g Protein Per Scoop | Clinically Tested 50% Higher Protein Absorption</p>    
+<button onclick="addToCart('MuscleBlaze',2629)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>MYFITNESS</h3>  
+<img src="C:\Users\nidhi\Downloads\shopping (1).webp">
+<p>₹400</p>
+<p>MYFITNESS Peanut Butter Chocolate Spread Smooth 1.25kg | 22g Protein & 6g Fiber | Tasty & Healthy Nut Butter Spread for Breakfast, Snacks | Cholesterol Free | Zero Trans Fat | Creamy Peanut Butter</p>
+<button onclick="addToCart('MYFITNESS',400)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Avvatar</h3>
+<img src="C:\Users\nidhi\Downloads\shopping (2).webp">
+<p class="price">₹899</p>
+<p>avvatar Micronized Creatine Monohydrate Powder (100 G,33 Servings)|Unflavoured|Muscle Recovery|Enhance Strength|Boost Recovery,1 Count</p>
+<button onclick="addToCart('Avvatar',899)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>LABRADA</h3>
+<img src="C:\Users\nidhi\Downloads\shopping (3).webp">
+<p class="price">₹2999</p>
+<p>Labrada SUPER CHARGE Pre-Workout 315gms – Pink Guava (63 Servings | 0.75g L-Arginine | 375mg L-Citrulline Malate | 2g Beta Alanine | 150mg Caffeine Anhydrous | 250mg Ashwagandha Extract | 6mg Zinc)</p>
+<button onclick="addToCart('LABRADA',2999)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>MuscleBlaze</h3>
+<img src="C:\Users\nidhi\Downloads\shopping (4).webp">
+<p class="price">₹1299</p>
+<p>MuscleBlaze MB-Vite Daily Multivitamin (120 Tablets) | With 51 Ingredients & 6 Blends | Vitamins & Minerals, Prebiotic & Probiotics, Amino Acid Blends | For Energy, Stamina & Recovery</p>
+<button onclick="addToCart('MuscleBlaze',1299)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>QNT</h3>
+<img src="C:\Users\nidhi\Downloads\61tMmNeW0mL._SY450_.jpg">
+<p class="price">₹4955</p>
+<p>QNT Prime Whey Protein Powder | Kesar Kaju Pista, 2 Kg | Triple Blend of Whey Isolate, Concentrate & Hydrolysate | 25g Protein, 5.9g BCAA per Scoop | Best Whey Protein Powder for Men & Women</p>
+<button onclick="addToCart('QNT',4955)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>MuscleTech</h3>
+<img src="C:\Users\nidhi\Downloads\mti-nitrotech-milk-chocolate-906g-1.webp">
+<p class="price">₹2929</p>
+<p>MuscleTech Nitrotech Ripped,907G (2Lbs),French Vanilla Bean,Low Fat Lean Whey Protein,Protein + Weight Management,30G Protein From Whey Protein,500G (L-Carnitine & L-Tartrate),200Mg</p>
+<button onclick="addToCart('MuscleTech',2929)">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Kapiva</h3>
+<img src="C:\Users\nidhi\Downloads\61PR3GC9L-L._SX679_.jpg">
+<p class="price">₹841</p>
+<p>Kapiva Shilajit/Shilajeet Gold Resin - 10g | 500mg/Serving | 20 Servings | Boost Muscle Growth & Stamina | Contains 24 Carat Gold | 100% Ayurvedic</p>
+<button onclick="addToCart('Kapiva',841)">Add to Cart</button>
+</div>
+</section>
+
+<script>
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({ name, price });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(`${name} added to cart!`);
+}
+
+function searchProducts() {
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  const products = document.querySelectorAll(".product");
+
+  products.forEach(product => {
+    const name = product.querySelector("h3").textContent.toLowerCase();
+    const description = product.querySelector("p:not(.price)").textContent.toLowerCase();
+
+    // If product name or description contains the search text → show it
+    if (name.includes(input) || description.includes(input)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TNG Nutrition | Login & Sign Up</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4CAF50, #2e8b57);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background-color: white;
+      width: 380px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    p {
+      margin-top: 15px;
+      color: #555;
+    }
+
+    a {
+      color: #007bff;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- LOGIN FORM -->
+    <div id="loginForm">
+      <h2>Login</h2>
+      <input type="text" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button onclick="login()">Login</button>
+      <p>If you don’t have an account, <a onclick="toggleForms()">Sign Up</a></p>
+    </div>
+
+    <!-- SIGN UP FORM -->
+    <div id="signupForm" class="hidden">
+      <h2>Sign Up</h2>
+      <input type="text" id="signupName" placeholder="Full Name" required>
+      <input type="email" id="signupEmail" placeholder="Email" required>
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <button onclick="signup()">Sign Up</button>
+      <p>Already have an account? <a onclick="toggleForms()">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Switch between login and sign up forms
+    function toggleForms() {
+      document.getElementById('loginForm').classList.toggle('hidden');
+      document.getElementById('signupForm').classList.toggle('hidden');
+    }
+
+    // Simulated login
+    function login() {
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      if (email === "" || password === "") {
+        alert("Please enter both email and password.");
+      } else {
+        alert("Login successful!");
+        // Example redirect:
+        // window.location.href = "home.html";
+      }
+    }
+
+    // Simulated sign up
+    function signup() {
+      const name = document.getElementById("signupName").value;
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
+
+      if (name === "" || email === "" || password === "") {
+        alert("Please fill in all fields.");
+      } else {
+        alert("Account created successfully!");
+        toggleForms(); // Go back to login after sign up
+      }
+    }
+  </script>
+
+</body>
+</html>

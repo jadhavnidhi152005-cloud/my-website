@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TNG Nutrition Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      background-color: white;
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-info p {
+      line-height: 1.6;
+    }
+
+    .social a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .social a:hover {
+      text-decoration: underline;
+    }
+
+    .open-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .open-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Popup Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .modal-content button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .modal-content button:hover {
+      background-color: #45a049;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: black;
+    }
+</style>
+</head>
+
+<body>
+ 
+<header>
+  <h1>TNG Nutrition Store</h1>
+  <p>Your one-stop shop for wellness</p>
+</header>
+
+<nav>
+  <a href="Home.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="About Us.html">About Us</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="login.html">login</a>
+  <a href="cart.html">🛒</a>
+</nav>
+
+<div class="container">
+<h2>Get in Touch</h2>
+<div class="contact-info">
+    <p><strong>📍 Address:</strong> Shop No 2 Chawl, 169, near Ambedkar Hospital, Tagore Nagar, Vikhroli, Mumbai, Maharashtra 400083</p>
+    <p><strong>📱 Phone:</strong> +91-91378 87334</p>
+    <p><strong>🕒 Store Hours:</strong> Mon – Sat: 7:00 AM – 11:00 PM | Sunday: 10:00 AM – 10:00 PM</p>
+</div>
+
+<div class="social">
+    <p><strong>Follow Us:</strong>
+       <a href="#">Facebook</a> |
+       <a href="#">Instagram</a> |
+       <a href="#">Twitter</a>
+    </p>
+</div>
+
+<button class="open-btn" id="openModalBtn">Send Us a Message</button>
+</div>
+
+<!-- Popup Modal -->
+<div id="messageModal" class="modal">
+<div class="modal-content">
+   <span class="close" id="closeModal">&times;</span>
+      <h2>Send Us a Message</h2>
+       <form id="messageForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Get elements
+    const modal = document.getElementById('messageModal');
+    const openBtn = document.getElementById('openModalBtn');
+    const closeBtn = document.getElementById('closeModal');
+
+    // Open popup
+    openBtn.onclick = function() {
+      modal.style.display = 'block';
+    }
+
+    // Close popup
+    closeBtn.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    // Close if user clicks outside modal
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // Handle form submission (you can add backend or EmailJS here)
+      document.getElementById('messageForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('✅ Your message has been sent! Thank you for contacting us.');
+      modal.style.display = 'none';
+      this.reset();
+    });
+</script>
+</body>
+</html>
